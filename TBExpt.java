@@ -17,40 +17,17 @@ public class TBExpt {
     PrintWriter pen = new PrintWriter(System.out, true);
 
     // Create a block to use
-    TextBlock block = new TextLine("This is a test.");
 
-    // Print out the block
-    TBUtils.print(pen, block);
+    TextBlock hellocenter = new RightJustified(new BoxedBlock(new TextLine("Hello")), 21);
+    TextBlock ruler = new TextLine("012345678901234567890123456789");
+    TextBlock hellocenter2 = new BoxedBlock(new RightJustified(new TextLine("Hello"), 21));
+    TextBlock olleh = new VComposition(hellocenter, ruler);
+    TextBlock olleh2 = new VComposition(hellocenter2, ruler);
 
-    TextBlock amazing = new TextLine("You are amazing.");
+    TBUtils.print(pen, olleh);
+    TBUtils.print(pen, olleh2);
 
-    BoxedBlock awesome = new BoxedBlock(amazing);
 
-    TBUtils.print(pen, awesome);
-
-    BoxedBlock incredible = new BoxedBlock(awesome);
-    TBUtils.print(pen, incredible);
-
-    TextBlock empty = new TextLine(" ");
-    BoxedBlock emptyBox = new BoxedBlock(empty);
-    TBUtils.print(pen, emptyBox);
-
-    TextBlock helo = new TextLine("hello");
-    TextBlock godbye = new TextLine("goodbye");
-    BoxedBlock hello = new BoxedBlock(helo);
-    BoxedBlock goodbye = new BoxedBlock(godbye);
-    VComposition hellogoodbye = new VComposition(hello, goodbye);
-
-    VComposition helogodbye = new VComposition(helo, godbye);
-
-    BoxedBlock helogodbyeblock = new BoxedBlock(helogodbye);
-    TBUtils.print(pen, helogodbyeblock);
-    TBUtils.print(pen, hellogoodbye);
-
-    HComposition comp1 = new HComposition(hello, godbye);
-    HComposition comp2 = new HComposition(godbye, hello);
-    TBUtils.print(pen, comp1);
-    TBUtils.print(pen, comp2);
     // Clean up after ourselves.
     pen.close();
   } // main(String[])

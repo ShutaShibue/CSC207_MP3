@@ -68,4 +68,18 @@ public class TBUtils {
     return lotsOfSpaces.substring(0, len);
   } // spaces(int)
 
+    /**
+   * Make it string for comparison.
+     * @throws Exception
+   */
+  public static String stringfy(TextBlock block) throws Exception {
+    String content = "";
+    for (int i = 0; i < block.height(); i++) {
+      if(i != 0) content += "\n";
+      content += block.row(i);
+    } // for
+    return content;
+  } // stringfy
+
+
 } // class TBUtils
