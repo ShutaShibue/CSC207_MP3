@@ -81,5 +81,18 @@ public class TBUtils {
     return content;
   } // stringfy
 
+  public static boolean equal(TextBlock t1, TextBlock t2) throws Exception{
+    if(stringfy(t1).equals(stringfy(t2))) return true;
+    return false;
+  }
+
+  public static boolean eqv(TextBlock t1, TextBlock t2) throws Exception{
+    if(t1.getClass().equals(t2.getClass())) return false;
+    return equal(t1, t2);
+  }
+
+  public static boolean eq(TextBlock t1, TextBlock t2){
+    return t1 == t2;
+  }
 
 } // class TBUtils
