@@ -42,7 +42,7 @@ public class Centered implements TextBlock {
 
     public String row(int i) throws Exception {
         String content = this.block.row(i);
-        if(content.length() > width()) return content.substring(0, i);
+        if(content.length() > width()) return content.substring(width/2, content.length()-width/2);
         
         int leftPad = (width() - content.length())/2;
         int rightPad = width() - content.length() - leftPad;

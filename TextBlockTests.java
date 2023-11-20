@@ -17,6 +17,15 @@ public class TextBlockTests {
     }
 
     @Test
+    public void TruncateZero() throws Exception {
+        TextBlock hello = new TextLine(""); //empty
+        TextBlock trunc = new Truncated(hello, 3);
+        TextBlock withzero = new Truncated(hello, 0);
+        assertEquals("   ", TBUtils.stringfy(trunc));
+        assertEquals("", TBUtils.stringfy(withzero));
+    }
+
+    @Test
     public void Center() throws Exception {
         TextBlock hellocenter = new Centered(new BoxedBlock(new TextLine("Hello")), 21);
         TextBlock ruler = new TextLine("012345678901234567890123456789");
@@ -32,6 +41,20 @@ public class TextBlockTests {
                 "+---------------------+       \n" + "|        Hello        |       \n"
                         + "+---------------------+       \n" + "012345678901234567890123456789",
                 TBUtils.stringfy(Vcomp2));
+    }
+
+    @Test
+    public void CenterZero() throws Exception {
+        TextBlock hello = new TextLine(null);
+        TextBlock center = new Centered(hello, 0);
+        assertEquals("", TBUtils.stringfy(center));
+    }
+
+    @Test
+    public void Centerless() throws Exception {
+        TextBlock hello = new TextLine("hello");
+        TextBlock center = new Centered(hello, 3);
+        assertEquals("ell", TBUtils.stringfy(center));
     }
 
     @Test
@@ -53,6 +76,20 @@ public class TextBlockTests {
     }
 
     @Test
+    public void RightZero() throws Exception {
+        TextBlock hello = new TextLine(null);
+        TextBlock right = new RightJustified(hello, 0);
+        assertEquals("", TBUtils.stringfy(right));
+    }
+
+    @Test
+    public void Rightless() throws Exception {
+        TextBlock hello = new TextLine("hello");
+        TextBlock center = new RightJustified(hello, 3);
+        assertEquals("llo", TBUtils.stringfy(center));
+    }
+
+    @Test
     public void HorizontallyFlip() throws Exception {
         TextBlock hol = new HorizontallyFlipped(new BoxedBlock(new TextLine("Hello")));
         assertEquals("+-----+\n|olleH|\n+-----+", TBUtils.stringfy(hol));
@@ -63,6 +100,16 @@ public class TextBlockTests {
         TextBlock ver = new VerticallyFlipped(
                 new VComposition(new TextLine("Hello"), new TextLine("Goodbye")));
         assertEquals("Goodbye\nHello  ", TBUtils.stringfy(ver));
+    }
+
+    @Test
+    public void BoxedRight() throws Exception {
+        TextBlock hello = new RightJustified(new TextLine("hello"), 8);
+        TextBlock boxed = new BoxedBlock(hello);
+
+        assertEquals("+--------+", boxed.row(0));
+        assertEquals("|   hello|", boxed.row(1));
+        assertEquals("+--------+", boxed.row(2));
     }
 
     @Test
