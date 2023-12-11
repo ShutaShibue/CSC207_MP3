@@ -2,8 +2,8 @@
 /**
  * The horizontal composition of two text blocks.
  * 
- * @author Samuel A. Rebelsky
- *  * This is lab code shared by Joshua Delarosa because I was absent at the lab class.
+ * @author Samuel A. Rebelsky * This is lab code shared by Joshua Delarosa because I was absent at
+ *         the lab class.
  * @version 1.3 of February 2019
  */
 public class HComposition implements TextBlock {

@@ -1,5 +1,6 @@
 /**
-vertically * 
+ * vertically *
+ * 
  * @author Samuel Rebelsky - took from his Eboard
  * @author Shuta Shibue
  */
@@ -17,7 +18,7 @@ public class VerticallyFlipped implements TextBlock {
     // +--------------+------------------------------------------------
     // | Constructors |
     // +--------------+
-    public VerticallyFlipped(TextBlock _block){
+    public VerticallyFlipped(TextBlock _block) {
         this.block = _block;
     }
 

@@ -42,8 +42,9 @@ public class RightJustified implements TextBlock {
 
     public String row(int i) throws Exception {
         String content = this.block.row(i);
-        if(content.length() > width()) return content.substring(content.length()-width, content.length());
-        
+        if (content.length() > width())
+            return content.substring(content.length() - width, content.length());
+
         int pad = width() - content.length();
         return TBUtils.spaces(pad) + content;
     } // row(int)

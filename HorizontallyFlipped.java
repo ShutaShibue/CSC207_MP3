@@ -18,7 +18,7 @@ public class HorizontallyFlipped implements TextBlock {
     // +--------------+------------------------------------------------
     // | Constructors |
     // +--------------+
-    public HorizontallyFlipped(TextBlock _block){
+    public HorizontallyFlipped(TextBlock _block) {
         this.block = _block;
     }
 
@@ -40,7 +40,7 @@ public class HorizontallyFlipped implements TextBlock {
         String reversed = "";
 
         for (int j = 0; j < content.length(); j++) {
-            reversed = content.charAt(j) + reversed; //add next character to the front.
+            reversed = content.charAt(j) + reversed; // add next character to the front.
         }
         return reversed;
     } // row(int)

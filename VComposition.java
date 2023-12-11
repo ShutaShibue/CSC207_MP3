@@ -23,7 +23,7 @@ public class VComposition implements TextBlock {
   // +--------------+------------------------------------------------------
   // | Constructors |
   // +--------------+
-  
+
   /**
    * Build a new block by composing top and bottom vertically.
    */

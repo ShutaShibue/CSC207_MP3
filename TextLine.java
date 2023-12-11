@@ -24,7 +24,8 @@ public class TextLine implements TextBlock {
    */
   public TextLine(String line) {
     this.line = line;
-    if(line == null) this.line = ""; // convert null to empty string so that length() works.
+    if (line == null)
+      this.line = ""; // convert null to empty string so that length() works.
   } // TextLine(String)
 
   // +---------+-----------------------------------------------------------

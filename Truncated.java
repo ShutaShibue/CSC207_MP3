@@ -42,10 +42,9 @@ public class Truncated implements TextBlock {
 
     public String row(int i) throws Exception {
         int len = this.block.row(i).length();
-        if(this.width() > len){
+        if (this.width() > len) {
             return this.block.row(i) + TBUtils.spaces(width() - len);
-        }
-        else{
+        } else {
             return this.block.row(i).substring(0, this.width);
         }
     } // row(int)
