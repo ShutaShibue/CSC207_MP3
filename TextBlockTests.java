@@ -18,7 +18,7 @@ public class TextBlockTests {
 
     @Test
     public void TruncateZero() throws Exception {
-        TextBlock hello = new TextLine(""); //empty
+        TextBlock hello = new TextLine(""); // empty
         TextBlock trunc = new Truncated(hello, 3);
         TextBlock withzero = new Truncated(hello, 0);
         assertEquals("   ", TBUtils.stringfy(trunc));
@@ -96,10 +96,23 @@ public class TextBlockTests {
     }
 
     @Test
+    public void HorizontallyFlipWithSpace() throws Exception {
+        TextBlock hol = new HorizontallyFlipped(new BoxedBlock(new TextLine("")));
+        assertEquals("++\n||\n++", TBUtils.stringfy(hol));
+    }
+
+    @Test
     public void VerticallyFlip() throws Exception {
         TextBlock ver = new VerticallyFlipped(
                 new VComposition(new TextLine("Hello"), new TextLine("Goodbye")));
         assertEquals("Goodbye\nHello  ", TBUtils.stringfy(ver));
+    }
+
+    @Test
+    public void VerticallyFlipWithEmpty() throws Exception {
+        TextBlock ver =
+                new VerticallyFlipped(new VComposition(new TextLine(""), new TextLine("Goodbye")));
+        assertEquals("Goodbye\n       ", TBUtils.stringfy(ver));
     }
 
     @Test
@@ -139,5 +152,5 @@ public class TextBlockTests {
         TextBlock abcd = new VComposition(ab, cd);
         TextBlock abcdGrid = new Grid(abcd, 2);
         assertEquals("abab\ncdcd\nabab\ncdcd", TBUtils.stringfy(abcdGrid));
-    }   
+    }
 }
